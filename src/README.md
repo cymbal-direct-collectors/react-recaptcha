@@ -16,7 +16,7 @@ Project structure:
 ├── README.md
 ├── src
 │   ├── ...
-│   └── App.tsx
+│   └── App.tsx  <-- these are where the code can be found
 │   └── index.js
 └── yarn.lock
 
