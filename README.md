@@ -1,5 +1,5 @@
-## Compose sample application
-### An project deploy React Application with Nginx
+## reCAPTCHA and React
+### An project deploy React Application protected by a reCAPTCHA Policy Based Challenge
 
 Project structure:
 
