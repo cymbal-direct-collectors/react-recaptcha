@@ -1,6 +1,11 @@
 import React, { useState, useCallback, FormEvent, ChangeEvent } from 'react';
 import { Mail, Phone, User, CheckCircle, AlertTriangle, LucideIcon } from 'lucide-react';
 
+
+/*
+Map the grecaptcha object to void values. This will allow the code to compile, but at run time
+this will allow the recaptcha/enterprise.js JavaScript to be triggered by the React code.
+*/
 declare global {
     interface Window {
         grecaptcha: {
@@ -15,6 +20,7 @@ declare global {
 // Email validation regex (basic but effective for common formats)
 const EMAIL_REGEX = /\S+@\S+\.\S+/;
 
+// Put your site key here
 const RECAPTCHA_SITE_KEY = "YOUR PBC SITE KEY";
 
 // Define the shape of the component's state
@@ -114,6 +120,9 @@ const App: React.FC = () => {
       return;
     }
     else{
+      /*
+      Embed the form submission logic inside the reCAPTCHA token generation/execute.
+      */
       window.grecaptcha.enterprise.ready(async () => {
         window.grecaptcha.enterprise.execute(RECAPTCHA_SITE_KEY, {action: 'LOGIN'}).then(
           function(recaptchaToken){
